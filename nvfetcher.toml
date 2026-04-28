@@ -1,0 +1,29 @@
+# nvfetcher source definitions
+# See: https://github.com/berberman/nvfetcher
+#
+# Example entry (GitHub latest release):
+#
+# [tool-name]
+# src.github = "owner/repo"
+# fetch.github = "owner/repo"
+#
+# Example entry (specific branch):
+#
+# [tool-name]
+# src.github = "owner/repo"
+# src.branch = "main"
+# fetch.github = "owner/repo"
+#
+# Run `nvfetcher` to regenerate _sources/generated.nix
+
+[googleworkspace-cli]
+src.github = "googleworkspace/cli"
+fetch.url = "https://github.com/googleworkspace/cli/releases/download/v$ver/google-workspace-cli-aarch64-apple-darwin.tar.gz"
+
+[salesforce-cli]
+src.npm = "@salesforce/cli"
+fetch.url = "https://registry.npmjs.org/@salesforce/cli/-/cli-$ver.tgz"
+
+[chrome-devtools-mcp]
+src.github = "ChromeDevTools/chrome-devtools-mcp"
+fetch.github = "ChromeDevTools/chrome-devtools-mcp"
