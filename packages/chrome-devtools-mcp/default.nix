@@ -15,9 +15,14 @@ pkgs.buildNpmPackage {
 
   npmFlags = [ "--ignore-scripts" ];
 
-  # urlpattern-polyfill is in devDependencies but required at runtime;
-  # without this, npm prune --omit=dev removes it and the binary fails to start.
+  # devDependencies must be present during the bundle step (rollup needs them);
+  # without this, npm prune --omit=dev removes them before rollup runs.
   dontNpmPrune = true;
+
+  # Run `bundle` instead of `build`: tsc alone leaves a dangling relative import
+  # (`../../node_modules/chrome-devtools-frontend/mcp/mcp.js`) that rollup resolves
+  # and inlines. The `bundle` script runs: clean → build → rollup → rm build/node_modules.
+  npmBuildScript = "bundle";
 
   # chrome-devtools-frontend TS sources and @paulirish/trace_engine .d.ts files both
   # declare ModelUpdateEvent from different module paths — TypeScript sees them as
