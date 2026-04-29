@@ -2,7 +2,7 @@ name: Update package sources
 
 on:
   schedule:
-    - cron: '17 6 * * 1' # weekly, Monday 06:17 UTC
+    - cron: "17 6 * * 1" # weekly, Monday 06:17 UTC
   workflow_dispatch:
 
 jobs:
@@ -13,20 +13,28 @@ jobs:
       pull-requests: write
 
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
 
-      - uses: DeterminateSystems/nix-installer-action@v14
+      - uses: cachix/install-nix-action@v31
+        with:
+          install_url: https://releases.nixos.org/nix/nix-2.24.11/install
+          github_access_token: ${{ secrets.GITHUB_TOKEN }}
+          extra_nix_config: |
+            access-tokens = github.com=${{ secrets.GITHUB_TOKEN }}
 
-      - uses: DeterminateSystems/magic-nix-cache-action@v8
+      - uses: nix-community/cache-nix-action@v6
+        with:
+          primary-key: nix-${{ runner.os }}-${{ hashFiles('**/*.nix', 'flake.lock') }}
+          restore-keys: nix-${{ runner.os }}-
 
       - name: Run nvfetcher
         run: nix run nixpkgs#nvfetcher -- -c nvfetcher.toml
 
       - name: Open pull request
-        uses: peter-evans/create-pull-request@v7
+        uses: peter-evans/create-pull-request@v8
         with:
-          commit-message: 'chore: update package sources'
-          title: 'chore: update package sources'
+          commit-message: "chore: update package sources"
+          title: "chore: update package sources"
           body: Automated nvfetcher run — review version bumps before merging.
           branch: update/nvfetcher
           delete-branch: true

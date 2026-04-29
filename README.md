@@ -1,6 +1,6 @@
 # nix-pkgs
 
-Custom Nix packages for [nix-config](https://github.com/pjan/nix-config). Single flake, packages + overlay.
+Custom Nix packages. Single flake, packages + overlay.
 
 ## Structure
 
