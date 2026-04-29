@@ -15,6 +15,10 @@ pkgs.buildNpmPackage {
 
   npmFlags = [ "--ignore-scripts" ];
 
+  # urlpattern-polyfill is in devDependencies but required at runtime;
+  # without this, npm prune --omit=dev removes it and the binary fails to start.
+  dontNpmPrune = true;
+
   # chrome-devtools-frontend TS sources and @paulirish/trace_engine .d.ts files both
   # declare ModelUpdateEvent from different module paths — TypeScript sees them as
   # incompatible (TS2717). tsc still emits JS when noEmitOnError is false (the default);
