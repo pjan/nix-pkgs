@@ -28,4 +28,4 @@ jobs:
           restore-keys: nix-${{ runner.os }}-
 
       - name: Build all packages
-        run: nix build .#googleworkspace-cli .#salesforce-cli .#chrome-devtools-mcp
+        run: nix flake check

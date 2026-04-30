@@ -27,4 +27,14 @@
       sha256 = "sha256-IK+cvZilMmrVPCPPpd7+jYNrzeXVgiXc6opOLthzFZM=";
     };
   };
+  playwright-mcp = {
+    pname = "playwright-mcp";
+    version = "0.0.71";
+    src = fetchFromGitHub {
+      owner = "microsoft";
+      repo = "playwright-mcp";
+      rev = "v0.0.71";
+      sha256 = "sha256-C4tXXpIbGdgedy5IdUi2xeSQwAo4v+++PC7rznX2sMc=";
+    };
+  };
 }

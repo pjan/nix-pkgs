@@ -27,3 +27,7 @@ fetch.url = "https://registry.npmjs.org/@salesforce/cli/-/cli-$ver.tgz"
 [chrome-devtools-mcp]
 src.github = "ChromeDevTools/chrome-devtools-mcp"
 fetch.github = "ChromeDevTools/chrome-devtools-mcp"
+
+[playwright-mcp]
+src.github = "microsoft/playwright-mcp"
+fetch.github = "microsoft/playwright-mcp"
