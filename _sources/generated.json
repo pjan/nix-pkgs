@@ -1,0 +1,68 @@
+{
+    "chrome-devtools-mcp": {
+        "cargoLock": null,
+        "date": null,
+        "extract": null,
+        "name": "chrome-devtools-mcp",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "name": null,
+            "sha256": "sha256-ASy89ugy1PZwna0MIde+8XCJ6Ure6c8zF50V6gqa3ys=",
+            "type": "url",
+            "url": "https://registry.npmjs.org/chrome-devtools-mcp/-/chrome-devtools-mcp-1.10.1.tgz"
+        },
+        "version": "1.10.1"
+    },
+    "googleworkspace-cli": {
+        "cargoLock": null,
+        "date": null,
+        "extract": null,
+        "name": "googleworkspace-cli",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "name": null,
+            "sha256": "sha256-HSqf/VvJssLEtIYw2vCC+tE9nlfXQZiKLCSO7VYvfaw=",
+            "type": "url",
+            "url": "https://github.com/googleworkspace/cli/releases/download/v0.22.5/google-workspace-cli-aarch64-apple-darwin.tar.gz"
+        },
+        "version": "0.22.5"
+    },
+    "playwright-mcp": {
+        "cargoLock": null,
+        "date": null,
+        "extract": null,
+        "name": "playwright-mcp",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "owner": "microsoft",
+            "repo": "playwright-mcp",
+            "rev": "v0.0.83",
+            "sha256": "sha256-Pkm4kmnWgLX7wmPjL3hM3LWfkPwIVUoW3Wp/RHjX/hA=",
+            "sparseCheckout": [],
+            "type": "github"
+        },
+        "version": "v0.0.83"
+    },
+    "salesforce-cli": {
+        "cargoLock": null,
+        "date": null,
+        "extract": null,
+        "name": "salesforce-cli",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "name": null,
+            "sha256": "sha256-pD7dzc4BL4NW0ycCvsXcDR/vdwdvlkkRxnoqlOxetTI=",
+            "type": "url",
+            "url": "https://registry.npmjs.org/@salesforce/cli/-/cli-2.153.5.tgz"
+        },
+        "version": "2.153.5"
+    }
+}

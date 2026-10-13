@@ -5,9 +5,8 @@ pkgs.buildNpmPackage {
   # nvfetcher reports the full tag (vX.Y.Z) as the version.
   version = pkgs.lib.removePrefix "v" sources.playwright-mcp.version;
 
-  # This hash must be updated manually alongside the version in _sources/generated.nix.
-  # Run: nix run nixpkgs#prefetch-npm-deps -- /path/to/playwright-mcp-<ver>/package-lock.json
-  npmDepsHash = "sha256-MKCldBLhxEa4g9A3crj48bRbBfbnGbEntvf3aTgqYII=";
+  # Updated by scripts/update-npm-deps.sh alongside the version in _sources/generated.nix.
+  npmDepsHash = "sha256-+uDq8oXkxQK4SNXBNZFtd4zrun1MGeSMeiLHViaNqHY=";
 
   # Prevent playwright from trying to download browsers in the sandbox.
   npmFlags = [ "--ignore-scripts" ];
