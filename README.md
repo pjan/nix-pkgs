@@ -49,7 +49,7 @@ environment.systemPackages = [
 
 ```sh
 nvfetcher        # update all sources
-nvfetcher -k foo # update only 'foo'
+nvfetcher -f foo # update only 'foo'
 ```
 
 `nvfetcher` rewrites `_sources/generated.nix` with updated versions and hashes. Then refresh the

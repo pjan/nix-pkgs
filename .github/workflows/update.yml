@@ -27,8 +27,14 @@ jobs:
           primary-key: nix-${{ runner.os }}-${{ hashFiles('**/*.nix', 'flake.lock') }}
           restore-keys: nix-${{ runner.os }}-
 
+      # Authenticated GitHub API calls: unauthenticated ones hit the shared runner IP rate limit.
       - name: Run nvfetcher
-        run: nix run nixpkgs#nvfetcher -- -c nvfetcher.toml
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          printf '[keys]\ngithub = "%s"\n' "$GITHUB_TOKEN" > "$RUNNER_TEMP/nvchecker-keys.toml"
+          nix run nixpkgs#nvfetcher -- -c nvfetcher.toml -k "$RUNNER_TEMP/nvchecker-keys.toml"
+          rm -f "$RUNNER_TEMP/nvchecker-keys.toml"
 
       - name: Update npm deps
         run: nix shell nixpkgs#nodejs nixpkgs#jq -c ./scripts/update-npm-deps.sh
