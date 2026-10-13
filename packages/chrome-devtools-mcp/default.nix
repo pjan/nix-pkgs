@@ -1,44 +1,25 @@
 { pkgs, sources }:
 
-pkgs.buildNpmPackage {
-  inherit (sources.chrome-devtools-mcp) pname src;
-  # nvfetcher reports the full tag (chrome-devtools-mcp-vX.Y.Z) as the version.
-  version = pkgs.lib.removePrefix "chrome-devtools-mcp-v" sources.chrome-devtools-mcp.version;
+# Upstream publishes a prebuilt, dependency-free bundle to npm. Building from
+# GitHub instead needs the devtools-frontend git submodule (~2.2 GB) and a tsc
+# run that exceeds V8's default heap on CI runners.
+pkgs.stdenv.mkDerivation {
+  inherit (sources.chrome-devtools-mcp) pname version src;
 
-  # This hash must be updated manually alongside the version in _sources/generated.nix.
-  # Reset to pkgs.lib.fakeHash and run `nix build .#chrome-devtools-mcp` to get the correct value.
-  npmDeps = pkgs.fetchNpmDeps {
-    inherit (sources.chrome-devtools-mcp) src;
-    hash = "sha256-VCa50F8KnOyc6Bwg80VNdPtFp5Kz2be8V+A0yltYEzw=";
-    # Prevent puppeteer's postinstall from trying to download/setup Chrome
-    # in the sandboxed fetchNpmDeps environment.
-    npmFlags = [ "--ignore-scripts" ];
-  };
+  nativeBuildInputs = [ pkgs.makeWrapper ];
 
-  npmFlags = [ "--ignore-scripts" ];
+  installPhase = ''
+    runHook preInstall
 
-  # devDependencies must be present during the bundle step (rollup needs them);
-  # without this, npm prune --omit=dev removes them before rollup runs.
-  dontNpmPrune = true;
+    mkdir -p $out/lib/chrome-devtools-mcp $out/bin
+    cp -r . $out/lib/chrome-devtools-mcp
 
-  # Run `bundle` instead of `build`: tsc alone leaves a dangling relative import
-  # (`../../node_modules/chrome-devtools-frontend/mcp/mcp.js`) that rollup resolves
-  # and inlines. The `bundle` script runs: clean → build → rollup → rm build/node_modules.
-  npmBuildScript = "bundle";
+    makeWrapper ${pkgs.nodejs}/bin/node $out/bin/chrome-devtools-mcp \
+      --add-flags $out/lib/chrome-devtools-mcp/build/src/bin/chrome-devtools-mcp.js
+    makeWrapper ${pkgs.nodejs}/bin/node $out/bin/chrome-devtools \
+      --add-flags $out/lib/chrome-devtools-mcp/build/src/bin/chrome-devtools.js
 
-  # tsc over chrome-devtools-frontend exceeds V8's default heap on low-memory
-  # machines (e.g. 7 GB GitHub runners), where Node sizes the heap from system RAM.
-  env.NODE_OPTIONS = "--max-old-space-size=4096";
-
-  # chrome-devtools-frontend TS sources and @paulirish/trace_engine .d.ts files both
-  # declare ModelUpdateEvent from different module paths — TypeScript sees them as
-  # incompatible (TS2717). tsc still emits JS when noEmitOnError is false (the default);
-  # replacing && with ; lets the post-build step run past the type-error exit code.
-  postPatch = ''
-    ${pkgs.jq}/bin/jq '
-      .scripts.build = "tsc --noEmitOnError false; node --experimental-strip-types --no-warnings=ExperimentalWarning scripts/post-build.ts"
-    ' package.json > package.json.tmp
-    mv package.json.tmp package.json
+    runHook postInstall
   '';
 
   meta = with pkgs.lib; {

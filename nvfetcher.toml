@@ -24,12 +24,14 @@ fetch.url = "https://github.com/googleworkspace/cli/releases/download/v$ver/goog
 [salesforce-cli]
 # nvfetcher has no npm source; read the `latest` dist-tag from the registry.
 src.webpage = "https://registry.npmjs.org/@salesforce/cli/latest"
-src.regex = '"version":"([^"]+)"'
+src.regex = '"version":"(\d+\.\d+\.\d+)"'
 fetch.url = "https://registry.npmjs.org/@salesforce/cli/-/cli-$ver.tgz"
 
 [chrome-devtools-mcp]
-src.github = "ChromeDevTools/chrome-devtools-mcp"
-fetch.github = "ChromeDevTools/chrome-devtools-mcp"
+# Prebuilt, dependency-free bundle from npm (see packages/chrome-devtools-mcp).
+src.webpage = "https://registry.npmjs.org/chrome-devtools-mcp/latest"
+src.regex = '"version":"(\d+\.\d+\.\d+)"'
+fetch.url = "https://registry.npmjs.org/chrome-devtools-mcp/-/chrome-devtools-mcp-$ver.tgz"
 
 [playwright-mcp]
 src.github = "microsoft/playwright-mcp"

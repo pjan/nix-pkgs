@@ -7,7 +7,7 @@ on:
 
 jobs:
   update:
-    runs-on: ubuntu-latest
+    runs-on: macos-latest # aarch64-darwin required for googleworkspace-cli
     permissions:
       contents: write
       pull-requests: write
@@ -30,11 +30,18 @@ jobs:
       - name: Run nvfetcher
         run: nix run nixpkgs#nvfetcher -- -c nvfetcher.toml
 
+      - name: Update npm deps
+        run: nix shell nixpkgs#nodejs nixpkgs#jq -c ./scripts/update-npm-deps.sh
+
+      # PRs opened with GITHUB_TOKEN don't trigger CI, so build here: no PR unless everything builds.
+      - name: Build all packages
+        run: nix flake check -L
+
       - name: Open pull request
         uses: peter-evans/create-pull-request@v8
         with:
           commit-message: "chore: update package sources"
           title: "chore: update package sources"
-          body: Automated nvfetcher run — review version bumps before merging.
+          body: Automated nvfetcher run (npm pins refreshed, all packages built) — review version bumps before merging.
           branch: update/nvfetcher
           delete-branch: true

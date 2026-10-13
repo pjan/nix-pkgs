@@ -52,4 +52,12 @@ nvfetcher        # update all sources
 nvfetcher -k foo # update only 'foo'
 ```
 
-`nvfetcher` rewrites `_sources/generated.nix` with updated versions and hashes. Commit the result.
+`nvfetcher` rewrites `_sources/generated.nix` with updated versions and hashes. Then refresh the
+npm pins nvfetcher can't compute (npm deps hashes, salesforce-cli shrinkwrap fixes):
+
+```sh
+nix shell nixpkgs#nodejs nixpkgs#jq -c ./scripts/update-npm-deps.sh
+```
+
+Commit the result. The weekly `Update package sources` workflow does all of this, builds every
+package, and only opens a PR when the build succeeds.
