@@ -9,7 +9,7 @@ pkgs.buildNpmPackage {
   # Reset to pkgs.lib.fakeHash and run `nix build .#chrome-devtools-mcp` to get the correct value.
   npmDeps = pkgs.fetchNpmDeps {
     inherit (sources.chrome-devtools-mcp) src;
-    hash = "sha256-VCa50F8KnOyc6Bwg80VNdPtFp5Kz2be8V+A0yltYEzw=";
+    hash = "sha256-tLjVNhC8no+JeESBEsUdCxOT87sTO3lZbndbdVKC1Zs=";
     # Prevent puppeteer's postinstall from trying to download/setup Chrome
     # in the sandboxed fetchNpmDeps environment.
     npmFlags = [ "--ignore-scripts" ];
