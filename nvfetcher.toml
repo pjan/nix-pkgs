@@ -18,10 +18,13 @@
 
 [googleworkspace-cli]
 src.github = "googleworkspace/cli"
+src.prefix = "v"
 fetch.url = "https://github.com/googleworkspace/cli/releases/download/v$ver/google-workspace-cli-aarch64-apple-darwin.tar.gz"
 
 [salesforce-cli]
-src.npm = "@salesforce/cli"
+# nvfetcher has no npm source; read the `latest` dist-tag from the registry.
+src.webpage = "https://registry.npmjs.org/@salesforce/cli/latest"
+src.regex = '"version":"([^"]+)"'
 fetch.url = "https://registry.npmjs.org/@salesforce/cli/-/cli-$ver.tgz"
 
 [chrome-devtools-mcp]

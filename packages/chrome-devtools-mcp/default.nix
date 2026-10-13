@@ -1,7 +1,9 @@
 { pkgs, sources }:
 
 pkgs.buildNpmPackage {
-  inherit (sources.chrome-devtools-mcp) pname version src;
+  inherit (sources.chrome-devtools-mcp) pname src;
+  # nvfetcher reports the full tag (chrome-devtools-mcp-vX.Y.Z) as the version.
+  version = pkgs.lib.removePrefix "chrome-devtools-mcp-v" sources.chrome-devtools-mcp.version;
 
   # This hash must be updated manually alongside the version in _sources/generated.nix.
   # Reset to pkgs.lib.fakeHash and run `nix build .#chrome-devtools-mcp` to get the correct value.
@@ -23,6 +25,10 @@ pkgs.buildNpmPackage {
   # (`../../node_modules/chrome-devtools-frontend/mcp/mcp.js`) that rollup resolves
   # and inlines. The `bundle` script runs: clean → build → rollup → rm build/node_modules.
   npmBuildScript = "bundle";
+
+  # tsc over chrome-devtools-frontend exceeds V8's default heap on low-memory
+  # machines (e.g. 7 GB GitHub runners), where Node sizes the heap from system RAM.
+  env.NODE_OPTIONS = "--max-old-space-size=4096";
 
   # chrome-devtools-frontend TS sources and @paulirish/trace_engine .d.ts files both
   # declare ModelUpdateEvent from different module paths — TypeScript sees them as

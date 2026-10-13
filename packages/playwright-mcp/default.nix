@@ -1,7 +1,9 @@
 { pkgs, sources }:
 
 pkgs.buildNpmPackage {
-  inherit (sources.playwright-mcp) pname version src;
+  inherit (sources.playwright-mcp) pname src;
+  # nvfetcher reports the full tag (vX.Y.Z) as the version.
+  version = pkgs.lib.removePrefix "v" sources.playwright-mcp.version;
 
   # This hash must be updated manually alongside the version in _sources/generated.nix.
   # Run: nix run nixpkgs#prefetch-npm-deps -- /path/to/playwright-mcp-<ver>/package-lock.json
