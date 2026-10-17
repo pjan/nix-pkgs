@@ -19,10 +19,10 @@
   };
   chrome-devtools-mcp = {
     pname = "chrome-devtools-mcp";
-    version = "1.10.1";
+    version = "1.11.0";
     src = fetchurl {
-      url = "https://registry.npmjs.org/chrome-devtools-mcp/-/chrome-devtools-mcp-1.10.1.tgz";
-      sha256 = "sha256-ASy89ugy1PZwna0MIde+8XCJ6Ure6c8zF50V6gqa3ys=";
+      url = "https://registry.npmjs.org/chrome-devtools-mcp/-/chrome-devtools-mcp-1.11.0.tgz";
+      sha256 = "sha256-6fCrl62VFZJ8fZ8KPfvbnqSF0oENVy5KZOuEsZLIvww=";
     };
   };
   circle-cli = {
@@ -73,10 +73,10 @@
   };
   salesforce-cli = {
     pname = "salesforce-cli";
-    version = "2.153.5";
+    version = "2.154.4";
     src = fetchurl {
-      url = "https://registry.npmjs.org/@salesforce/cli/-/cli-2.153.5.tgz";
-      sha256 = "sha256-pD7dzc4BL4NW0ycCvsXcDR/vdwdvlkkRxnoqlOxetTI=";
+      url = "https://registry.npmjs.org/@salesforce/cli/-/cli-2.154.4.tgz";
+      sha256 = "sha256-kXlt4ICUJre5eEdpzyFDdF1uthjN3RjrybiYX1ioFNc=";
     };
   };
 }
