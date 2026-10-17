@@ -33,6 +33,14 @@
       sha256 = "sha256-Pkm4kmnWgLX7wmPjL3hM3LWfkPwIVUoW3Wp/RHjX/hA=";
     };
   };
+  rea-agents = {
+    pname = "rea-agents";
+    version = "6.5.0";
+    src = fetchurl {
+      url = "https://registry.npmjs.org/rea-agents/-/rea-agents-6.5.0.tgz";
+      sha256 = "sha256-UxcXoG6SymUaq1JpEZD5FvrARCcsAfh14ixeKTIY5pk=";
+    };
+  };
   salesforce-cli = {
     pname = "salesforce-cli";
     version = "2.153.5";

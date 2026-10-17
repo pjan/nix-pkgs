@@ -9,4 +9,5 @@ in
   salesforce-cli = pkgs.callPackage ./salesforce-cli { inherit sources; };
   chrome-devtools-mcp = pkgs.callPackage ./chrome-devtools-mcp { inherit sources; };
   playwright-mcp = pkgs.callPackage ./playwright-mcp { inherit sources; };
+  rea-agents = pkgs.callPackage ./rea-agents { inherit sources; };
 }

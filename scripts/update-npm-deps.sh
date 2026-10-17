@@ -3,7 +3,8 @@
 #   nix shell nixpkgs#nodejs nixpkgs#jq -c ./scripts/update-npm-deps.sh
 #
 # 1. salesforce-cli: regenerate shrinkwrap-fixes.json (repairs upstream's npm-shrinkwrap.json).
-# 2. npm deps hashes of the buildNpmPackage packages.
+# 2. Lockfiles for npm tarballs that ship without one (rea-agents).
+# 3. npm deps hashes of the buildNpmPackage packages.
 #
 # Step 2 builds with a fake hash and reads the real one from the mismatch error, so it
 # needs direct network access (it fails behind TLS-intercepting proxies such as Zscaler).
@@ -11,7 +12,7 @@ set -euo pipefail
 
 cd "$(dirname "$0")/.."
 
-npm_packages=(playwright-mcp salesforce-cli)
+npm_packages=(playwright-mcp rea-agents salesforce-cli)
 fake_hash="sha256-AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA="
 system=$(nix eval --impure --raw --expr builtins.currentSystem)
 
@@ -26,6 +27,16 @@ jq -n --slurpfile a "$work/upstream.json" --slurpfile b "$work/package/npm-shrin
   remove: [$a[0].packages | keys[] | select(. as $k | $b[0].packages | has($k) | not)],
   set: ($b[0].packages | with_entries(select(.key as $k | $a[0].packages[$k] != .value)))
 }' > packages/salesforce-cli/shrinkwrap-fixes.json
+
+echo "Regenerating rea-agents lockfile..."
+tarball=$(nix build --no-link --print-out-paths ".#packages.$system.rea-agents.src")
+rm -rf "$work/package"
+tar -xzf "$tarball" -C "$work"
+# Same stripping as the package's postPatch: no dev/optional deps, no lifecycle scripts.
+jq 'del(.devDependencies, .optionalDependencies, .scripts)' "$work/package/package.json" > "$work/package.json.tmp"
+mv "$work/package.json.tmp" "$work/package/package.json"
+(cd "$work/package" && npm install --package-lock-only --ignore-scripts --no-audit --no-fund >/dev/null)
+cp "$work/package/package-lock.json" packages/rea-agents/package-lock.json
 
 for pkg in "${npm_packages[@]}"; do
   file="packages/$pkg/default.nix"

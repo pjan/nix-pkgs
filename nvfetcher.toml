@@ -36,3 +36,10 @@ fetch.url = "https://registry.npmjs.org/chrome-devtools-mcp/-/chrome-devtools-mc
 [playwright-mcp]
 src.github = "microsoft/playwright-mcp"
 fetch.github = "microsoft/playwright-mcp"
+
+[rea-agents]
+# Published tarball ships prebuilt dist/ and the bundled skill, but no lockfile
+# (see packages/rea-agents).
+src.webpage = "https://registry.npmjs.org/rea-agents/latest"
+src.regex = '"version":"(\d+\.\d+\.\d+)"'
+fetch.url = "https://registry.npmjs.org/rea-agents/-/rea-agents-$ver.tgz"

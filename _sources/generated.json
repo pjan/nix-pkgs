@@ -50,6 +50,21 @@
         },
         "version": "v0.0.83"
     },
+    "rea-agents": {
+        "cargoLock": null,
+        "date": null,
+        "extract": null,
+        "name": "rea-agents",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "name": null,
+            "sha256": "sha256-UxcXoG6SymUaq1JpEZD5FvrARCcsAfh14ixeKTIY5pk=",
+            "type": "url",
+            "url": "https://registry.npmjs.org/rea-agents/-/rea-agents-6.5.0.tgz"
+        },
+        "version": "6.5.0"
+    },
     "salesforce-cli": {
         "cargoLock": null,
         "date": null,
