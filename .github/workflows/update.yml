@@ -2,7 +2,7 @@ name: Update package sources
 
 on:
   schedule:
-    - cron: "17 6 * * 1" # weekly, Monday 06:17 UTC
+    - cron: "17 6 * * *" # daily, 06:17 UTC
   workflow_dispatch:
 
 jobs:
@@ -36,18 +36,26 @@ jobs:
           nix run nixpkgs#nvfetcher -- -c nvfetcher.toml -k "$RUNNER_TEMP/nvchecker-keys.toml"
           rm -f "$RUNNER_TEMP/nvchecker-keys.toml"
 
-      - name: Update npm deps
-        run: nix shell nixpkgs#nodejs nixpkgs#jq -c ./scripts/update-npm-deps.sh
+      - name: Update dependency pins
+        run: nix shell nixpkgs#nodejs nixpkgs#jq -c ./scripts/update-deps.sh
 
       # PRs opened with GITHUB_TOKEN don't trigger CI, so build here: no PR unless everything builds.
       - name: Build all packages
         run: nix flake check -L
 
       - name: Open pull request
+        id: pr
         uses: peter-evans/create-pull-request@5f6978faf089d4d20b00c7766989d076bb2fc7f1 # v8.1.1
         with:
           commit-message: "chore: update package sources"
           title: "chore: update package sources"
-          body: Automated nvfetcher run (npm pins refreshed, all packages built) — review version bumps before merging.
+          body: Automated nvfetcher run (dependency pins refreshed, all packages built); merged automatically.
           branch: update/nvfetcher
           delete-branch: true
+
+      # Every package built above, which is the gate CI would apply, so merge right away.
+      - name: Merge pull request
+        if: steps.pr.outputs.pull-request-number != '' && steps.pr.outputs.pull-request-operation != 'closed'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: gh pr merge "${{ steps.pr.outputs.pull-request-number }}" --squash --delete-branch --repo "$GITHUB_REPOSITORY"
