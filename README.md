@@ -63,7 +63,7 @@ nix shell nixpkgs#nodejs nixpkgs#jq -c ./scripts/update-deps.sh
 New `buildNpmPackage`/`buildGoModule` packages go in the `npm_packages`/`go_packages` lists there.
 
 Commit the result. The daily `Update package sources` workflow does all of this, builds every
-package, and only opens a PR when the build succeeds; that PR is then merged automatically.
+package, and only commits the result to `main` when the build succeeds.
 
 Unfree packages (circle-cli) must be allowed in the consumer's nixpkgs config; the flake's own
 `packages`/`checks` allow them via `allowUnfreePredicate`.
