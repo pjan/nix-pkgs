@@ -1,4 +1,25 @@
 {
+    "bmad-method": {
+        "cargoLock": null,
+        "date": null,
+        "extract": null,
+        "name": "bmad-method",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "owner": "bmad-code-org",
+            "repo": "BMAD-METHOD",
+            "rev": "v6.12.4",
+            "sha256": "sha256-L7vh/45gsmWXMDBAA9Jx9YjN1zyoKzWIhwn/SKMkjVo=",
+            "sparseCheckout": [],
+            "type": "github"
+        },
+        "version": "v6.12.4"
+    },
     "chrome-devtools-mcp": {
         "cargoLock": null,
         "date": null,
@@ -13,6 +34,42 @@
             "url": "https://registry.npmjs.org/chrome-devtools-mcp/-/chrome-devtools-mcp-1.10.1.tgz"
         },
         "version": "1.10.1"
+    },
+    "circle-cli": {
+        "cargoLock": null,
+        "date": null,
+        "extract": null,
+        "name": "circle-cli",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "name": null,
+            "sha256": "sha256-6Z9/SNKiL88WHIWN8RAD6bssHyNpOYVc5O8HtfprqEY=",
+            "type": "url",
+            "url": "https://registry.npmjs.org/@circle-fin/cli/-/cli-1.2.2.tgz"
+        },
+        "version": "1.2.2"
+    },
+    "git-wt": {
+        "cargoLock": null,
+        "date": null,
+        "extract": null,
+        "name": "git-wt",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "owner": "ahmedelgabri",
+            "repo": "git-wt",
+            "rev": "v3.1.0",
+            "sha256": "sha256-6jCVPWIpj09wISexamYslzmgwlqIL3RDRfYFgmkcPIA=",
+            "sparseCheckout": [],
+            "type": "github"
+        },
+        "version": "v3.1.0"
     },
     "googleworkspace-cli": {
         "cargoLock": null,

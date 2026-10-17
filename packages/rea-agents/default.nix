@@ -4,7 +4,7 @@ let
   # The npm tarball ships prebuilt dist/ and the bundled skill, but no lockfile.
   # package-lock.json is generated from its package.json with dev/optional deps
   # (frida, whose install script downloads binaries) and scripts stripped;
-  # scripts/update-npm-deps.sh regenerates it.
+  # scripts/update-deps.sh regenerates it.
   copyLockfile = ''
     cp ${./package-lock.json} package-lock.json
   '';
@@ -16,7 +16,7 @@ pkgs.buildNpmPackage (finalAttrs: {
   # Requires Node ^22.19 || ^24.11 || >=26.
   nodejs = pkgs.nodejs_24;
 
-  # Updated by scripts/update-npm-deps.sh alongside the version in _sources/generated.nix.
+  # Updated by scripts/update-deps.sh alongside the version in _sources/generated.nix.
   npmDeps = pkgs.fetchNpmDeps {
     inherit (sources.rea-agents) src;
     sourceRoot = "package";
