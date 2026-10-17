@@ -29,11 +29,11 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-ASy89ugy1PZwna0MIde+8XCJ6Ure6c8zF50V6gqa3ys=",
+            "sha256": "sha256-6fCrl62VFZJ8fZ8KPfvbnqSF0oENVy5KZOuEsZLIvww=",
             "type": "url",
-            "url": "https://registry.npmjs.org/chrome-devtools-mcp/-/chrome-devtools-mcp-1.10.1.tgz"
+            "url": "https://registry.npmjs.org/chrome-devtools-mcp/-/chrome-devtools-mcp-1.11.0.tgz"
         },
-        "version": "1.10.1"
+        "version": "1.11.0"
     },
     "circle-cli": {
         "cargoLock": null,
@@ -131,10 +131,10 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-pD7dzc4BL4NW0ycCvsXcDR/vdwdvlkkRxnoqlOxetTI=",
+            "sha256": "sha256-kXlt4ICUJre5eEdpzyFDdF1uthjN3RjrybiYX1ioFNc=",
             "type": "url",
-            "url": "https://registry.npmjs.org/@salesforce/cli/-/cli-2.153.5.tgz"
+            "url": "https://registry.npmjs.org/@salesforce/cli/-/cli-2.154.4.tgz"
         },
-        "version": "2.153.5"
+        "version": "2.154.4"
     }
 }
