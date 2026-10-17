@@ -6,12 +6,42 @@
   dockerTools,
 }:
 {
+  bmad-method = {
+    pname = "bmad-method";
+    version = "v6.12.4";
+    src = fetchFromGitHub {
+      owner = "bmad-code-org";
+      repo = "BMAD-METHOD";
+      rev = "v6.12.4";
+      fetchSubmodules = false;
+      sha256 = "sha256-L7vh/45gsmWXMDBAA9Jx9YjN1zyoKzWIhwn/SKMkjVo=";
+    };
+  };
   chrome-devtools-mcp = {
     pname = "chrome-devtools-mcp";
     version = "1.10.1";
     src = fetchurl {
       url = "https://registry.npmjs.org/chrome-devtools-mcp/-/chrome-devtools-mcp-1.10.1.tgz";
       sha256 = "sha256-ASy89ugy1PZwna0MIde+8XCJ6Ure6c8zF50V6gqa3ys=";
+    };
+  };
+  circle-cli = {
+    pname = "circle-cli";
+    version = "1.2.2";
+    src = fetchurl {
+      url = "https://registry.npmjs.org/@circle-fin/cli/-/cli-1.2.2.tgz";
+      sha256 = "sha256-6Z9/SNKiL88WHIWN8RAD6bssHyNpOYVc5O8HtfprqEY=";
+    };
+  };
+  git-wt = {
+    pname = "git-wt";
+    version = "v3.1.0";
+    src = fetchFromGitHub {
+      owner = "ahmedelgabri";
+      repo = "git-wt";
+      rev = "v3.1.0";
+      fetchSubmodules = false;
+      sha256 = "sha256-6jCVPWIpj09wISexamYslzmgwlqIL3RDRfYFgmkcPIA=";
     };
   };
   googleworkspace-cli = {

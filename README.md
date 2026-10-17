@@ -53,11 +53,17 @@ nvfetcher -f foo # update only 'foo'
 ```
 
 `nvfetcher` rewrites `_sources/generated.nix` with updated versions and hashes. Then refresh the
-npm pins nvfetcher can't compute (npm deps hashes, salesforce-cli shrinkwrap fixes):
+pins nvfetcher can't compute (npm deps and Go vendor hashes, lockfiles for npm tarballs that ship
+without one, salesforce-cli shrinkwrap fixes):
 
 ```sh
-nix shell nixpkgs#nodejs nixpkgs#jq -c ./scripts/update-npm-deps.sh
+nix shell nixpkgs#nodejs nixpkgs#jq -c ./scripts/update-deps.sh
 ```
 
-Commit the result. The weekly `Update package sources` workflow does all of this, builds every
-package, and only opens a PR when the build succeeds.
+New `buildNpmPackage`/`buildGoModule` packages go in the `npm_packages`/`go_packages` lists there.
+
+Commit the result. The daily `Update package sources` workflow does all of this, builds every
+package, and only opens a PR when the build succeeds; that PR is then merged automatically.
+
+Unfree packages (circle-cli) must be allowed in the consumer's nixpkgs config; the flake's own
+`packages`/`checks` allow them via `allowUnfreePredicate`.

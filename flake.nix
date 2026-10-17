@@ -19,6 +19,7 @@
         pkgs = import nixpkgs {
           inherit system;
           overlays = [ overlay ];
+          config.allowUnfreePredicate = pkg: builtins.elem (nixpkgs.lib.getName pkg) [ "circle-cli" ];
         };
         packageSet = import ./packages { inherit pkgs; };
       in

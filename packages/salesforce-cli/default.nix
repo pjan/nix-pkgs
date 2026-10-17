@@ -5,7 +5,7 @@ let
   # @opentelemetry/core versions, the macOS-only fsevents optional dep), so
   # `npm ci` fails offline. shrinkwrap-fixes.json turns it into what
   # `npm install --package-lock-only` produces: `remove` lists entries to drop,
-  # `set` the entries to add or replace. scripts/update-npm-deps.sh regenerates it.
+  # `set` the entries to add or replace. scripts/update-deps.sh regenerates it.
   patchShrinkwrap = ''
     jq --slurpfile f ${./shrinkwrap-fixes.json} \
       '.packages = ((.packages | delpaths([$f[0].remove[] | [.]])) + $f[0].set)' \
@@ -17,7 +17,7 @@ in
 pkgs.buildNpmPackage {
   inherit (sources.salesforce-cli) pname version src;
 
-  # Updated by scripts/update-npm-deps.sh alongside the version in _sources/generated.nix.
+  # Updated by scripts/update-deps.sh alongside the version in _sources/generated.nix.
   npmDeps = pkgs.fetchNpmDeps {
     inherit (sources.salesforce-cli) src;
     sourceRoot = "package";

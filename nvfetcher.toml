@@ -43,3 +43,19 @@ fetch.github = "microsoft/playwright-mcp"
 src.webpage = "https://registry.npmjs.org/rea-agents/latest"
 src.regex = '"version":"(\d+\.\d+\.\d+)"'
 fetch.url = "https://registry.npmjs.org/rea-agents/-/rea-agents-$ver.tgz"
+
+[bmad-method]
+# Built from the GitHub tag (ships package-lock.json); skip web-bundles-* tags.
+src.github_tag = "bmad-code-org/BMAD-METHOD"
+src.include_regex = '^v\d+\.\d+\.\d+$'
+fetch.github = "bmad-code-org/BMAD-METHOD"
+
+[circle-cli]
+# npm tarball without a lockfile; its devDependencies are private (see packages/circle-cli).
+src.webpage = "https://registry.npmjs.org/@circle-fin/cli/latest"
+src.regex = '"version":"(\d+\.\d+\.\d+)"'
+fetch.url = "https://registry.npmjs.org/@circle-fin/cli/-/cli-$ver.tgz"
+
+[git-wt]
+src.github = "ahmedelgabri/git-wt"
+fetch.github = "ahmedelgabri/git-wt"
