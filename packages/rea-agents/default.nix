@@ -22,7 +22,7 @@ pkgs.buildNpmPackage (finalAttrs: {
     sourceRoot = "package";
     postPatch = copyLockfile;
     name = "rea-agents-${sources.rea-agents.version}-npm-deps";
-    hash = "sha256-eVR13/QlwI7zbgDa9Wo/AcKmwvRwsKY2QJZoCfiQrwA=";
+    hash = "sha256-kC+eHVXWJuHqIb5kROP7P672L8jfw/K1ovipokPWOmg=";
   };
 
   sourceRoot = "package";
