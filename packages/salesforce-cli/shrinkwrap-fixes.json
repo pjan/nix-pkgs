@@ -35,6 +35,7 @@
     "node_modules/@tufjs/models",
     "node_modules/abbrev",
     "node_modules/aproba",
+    "node_modules/basic-ftp",
     "node_modules/bin-links",
     "node_modules/bin-links/node_modules/signal-exit",
     "node_modules/bin-links/node_modules/write-file-atomic",
@@ -647,6 +648,15 @@
       ],
       "engines": {
         "node": "^8.16.0 || ^10.6.0 || >=11.0.0"
+      }
+    },
+    "node_modules/get-uri/node_modules/basic-ftp": {
+      "version": "5.3.1",
+      "resolved": "https://registry.npmjs.org/basic-ftp/-/basic-ftp-5.3.1.tgz",
+      "integrity": "sha512-bopVNp6ugyA150DDuZfPFdt1KZ5a94ZDiwX4hMgZDzF+GttD80lEy8kj98kbyhLXnPvhtIo93mdnLIjpCAeeOw==",
+      "license": "MIT",
+      "engines": {
+        "node": ">=10.0.0"
       }
     }
   }

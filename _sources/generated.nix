@@ -73,10 +73,10 @@
   };
   salesforce-cli = {
     pname = "salesforce-cli";
-    version = "2.154.4";
+    version = "2.155.7";
     src = fetchurl {
-      url = "https://registry.npmjs.org/@salesforce/cli/-/cli-2.154.4.tgz";
-      sha256 = "sha256-kXlt4ICUJre5eEdpzyFDdF1uthjN3RjrybiYX1ioFNc=";
+      url = "https://registry.npmjs.org/@salesforce/cli/-/cli-2.155.7.tgz";
+      sha256 = "sha256-IIdAUbuB7CaUTrROtjWN8NvAd5FJ9+M9YVdGrzWqHww=";
     };
   };
 }
