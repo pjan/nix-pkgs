@@ -19,10 +19,10 @@
   };
   chrome-devtools-mcp = {
     pname = "chrome-devtools-mcp";
-    version = "1.11.0";
+    version = "1.12.0";
     src = fetchurl {
-      url = "https://registry.npmjs.org/chrome-devtools-mcp/-/chrome-devtools-mcp-1.11.0.tgz";
-      sha256 = "sha256-6fCrl62VFZJ8fZ8KPfvbnqSF0oENVy5KZOuEsZLIvww=";
+      url = "https://registry.npmjs.org/chrome-devtools-mcp/-/chrome-devtools-mcp-1.12.0.tgz";
+      sha256 = "sha256-Sq3jFnw+eBx5fWEJ7WA6DKW4yzY6KJ4uqsqpsMXSo2A=";
     };
   };
   circle-cli = {
