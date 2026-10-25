@@ -23,7 +23,7 @@ pkgs.buildNpmPackage {
     sourceRoot = "package";
     postPatch = patchShrinkwrap;
     name = "salesforce-cli-${sources.salesforce-cli.version}-npm-deps";
-    hash = "sha256-RRSblxSj2Jbl48prZgvFdtDogO/7pG14Pe/8xzS0AiM=";
+    hash = "sha256-pFSOI1JpjEOjOPVk4LLyWsJ+1BIIRrxQ4rNtV5GOkKI=";
     nativeBuildInputs = [ pkgs.jq ];
   };
 

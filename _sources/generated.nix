@@ -65,10 +65,10 @@
   };
   rea-agents = {
     pname = "rea-agents";
-    version = "6.7.0";
+    version = "6.8.0";
     src = fetchurl {
-      url = "https://registry.npmjs.org/rea-agents/-/rea-agents-6.7.0.tgz";
-      sha256 = "sha256-IJWKZtuhoBHlCkhr65Rjo0MSjtNoyYT5QGU2LBP1H5A=";
+      url = "https://registry.npmjs.org/rea-agents/-/rea-agents-6.8.0.tgz";
+      sha256 = "sha256-jVQux2qcs1BYS2CmycCIcG/4EtW7WwlMIMlbbcJWmLs=";
     };
   };
   salesforce-cli = {
