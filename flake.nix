@@ -6,15 +6,20 @@
     flake-utils.url = "github:numtide/flake-utils";
   };
 
-  outputs = { self, nixpkgs, flake-utils }:
+  outputs =
+    {
+      self,
+      nixpkgs,
+      flake-utils,
+    }:
     let
-      overlay = final: prev:
-        import ./packages { pkgs = final; };
+      overlay = final: prev: import ./packages { pkgs = final; };
     in
     {
       overlays.default = overlay;
     }
-    // flake-utils.lib.eachDefaultSystem (system:
+    // flake-utils.lib.eachDefaultSystem (
+      system:
       let
         pkgs = import nixpkgs {
           inherit system;
@@ -26,6 +31,7 @@
       {
         packages = packageSet;
         checks = packageSet;
+        formatter = pkgs.nixfmt-tree;
       }
     );
 }

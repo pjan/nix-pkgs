@@ -31,7 +31,11 @@ pkgs.buildNpmPackage {
   postPatch = patchShrinkwrap;
   nativeBuildInputs = [ pkgs.jq ];
 
-  npmFlags = [ "--legacy-peer-deps" "--omit=optional" "--ignore-scripts" ];
+  npmFlags = [
+    "--legacy-peer-deps"
+    "--omit=optional"
+    "--ignore-scripts"
+  ];
 
   dontNpmBuild = true;
   dontNpmPrune = true;
