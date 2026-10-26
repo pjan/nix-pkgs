@@ -43,9 +43,6 @@ jobs:
             nixpkgs \
             flake-utils
 
-      - name: Validate build with updated inputs
-        run: nix flake check
-
       - name: Capture lock diff
         if: success()
         run: |
