@@ -131,10 +131,10 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-IIdAUbuB7CaUTrROtjWN8NvAd5FJ9+M9YVdGrzWqHww=",
+            "sha256": "sha256-740zSVbdYNv+mWGgw9sP98WxOmS6fTl+e5qePEHumrY=",
             "type": "url",
-            "url": "https://registry.npmjs.org/@salesforce/cli/-/cli-2.155.7.tgz"
+            "url": "https://registry.npmjs.org/@salesforce/cli/-/cli-2.155.8.tgz"
         },
-        "version": "2.155.7"
+        "version": "2.155.8"
     }
 }
