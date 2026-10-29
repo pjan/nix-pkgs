@@ -1,16 +1,10 @@
 { pkgs, sources }:
 
 let
-  # Upstream's npm-shrinkwrap.json is inconsistent (e.g. missing nested
-  # @opentelemetry/core versions, the macOS-only fsevents optional dep), so
-  # `npm ci` fails offline. shrinkwrap-fixes.json turns it into what
-  # `npm install --package-lock-only` produces: `remove` lists entries to drop,
-  # `set` the entries to add or replace. scripts/update-deps.sh regenerates it.
-  patchShrinkwrap = ''
-    jq --slurpfile f ${./shrinkwrap-fixes.json} \
-      '.packages = ((.packages | delpaths([$f[0].remove[] | [.]])) + $f[0].set)' \
-      npm-shrinkwrap.json > npm-shrinkwrap.json.tmp
-    mv npm-shrinkwrap.json.tmp npm-shrinkwrap.json
+  # Upstream dropped npm-shrinkwrap.json starting in 2.156.x.
+  # package-lock.json is generated from the tarball by scripts/update-deps.sh.
+  copyLockfile = ''
+    cp ${./package-lock.json} package-lock.json
   '';
 in
 
@@ -21,15 +15,13 @@ pkgs.buildNpmPackage {
   npmDeps = pkgs.fetchNpmDeps {
     inherit (sources.salesforce-cli) src;
     sourceRoot = "package";
-    postPatch = patchShrinkwrap;
+    postPatch = copyLockfile;
     name = "salesforce-cli-${sources.salesforce-cli.version}-npm-deps";
-    hash = "sha256-lbmjDrx7mqk9R65kM68VwhPTFekQFZ8aXoVXL814z3A=";
-    nativeBuildInputs = [ pkgs.jq ];
+    hash = "sha256-qQVbnyd1CfjiHFbBBFEhE6VTEkmZmPBwUXXcuid74UI=";
   };
 
   sourceRoot = "package";
-  postPatch = patchShrinkwrap;
-  nativeBuildInputs = [ pkgs.jq ];
+  postPatch = copyLockfile;
 
   npmFlags = [
     "--legacy-peer-deps"
