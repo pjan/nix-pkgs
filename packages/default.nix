@@ -18,4 +18,5 @@ in
   bmad-method = pkgs.callPackage ./bmad-method { inherit sources; };
   circle-cli = pkgs.callPackage ./circle-cli { inherit sources; };
   git-wt = pkgs.callPackage ./git-wt { inherit sources; };
+  tinycast = pkgs.callPackage ./tinycast { inherit sources; };
 }

@@ -59,3 +59,9 @@ fetch.url = "https://registry.npmjs.org/@circle-fin/cli/-/cli-$ver.tgz"
 [git-wt]
 src.github = "ahmedelgabri/git-wt"
 fetch.github = "ahmedelgabri/git-wt"
+
+[tinycast]
+# Tracks the latest stable (non-pre-release) GitHub release.
+src.github = "abue-ammar/tinycast"
+src.prefix = "v"
+fetch.url = "https://github.com/abue-ammar/tinycast/releases/download/v$ver/Tinycast-$ver.dmg"
