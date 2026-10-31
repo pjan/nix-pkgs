@@ -136,5 +136,20 @@
             "url": "https://registry.npmjs.org/@salesforce/cli/-/cli-2.156.8.tgz"
         },
         "version": "2.156.8"
+    },
+    "tinycast": {
+        "cargoLock": null,
+        "date": null,
+        "extract": null,
+        "name": "tinycast",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "name": null,
+            "sha256": "sha256-6dPaLAobs7gTzkHM5Sk0+9B8BJQWic9Ojli6MoT3lsU=",
+            "type": "url",
+            "url": "https://github.com/abue-ammar/tinycast/releases/download/v0.12.1/Tinycast-0.12.1.dmg"
+        },
+        "version": "0.12.1"
     }
 }
