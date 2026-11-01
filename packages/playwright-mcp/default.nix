@@ -6,7 +6,7 @@ pkgs.buildNpmPackage {
   version = pkgs.lib.removePrefix "v" sources.playwright-mcp.version;
 
   # Updated by scripts/update-deps.sh alongside the version in _sources/generated.nix.
-  npmDepsHash = "sha256-+uDq8oXkxQK4SNXBNZFtd4zrun1MGeSMeiLHViaNqHY=";
+  npmDepsHash = "sha256-Z0Ab9kB1tow5//Y3FpQ6JxzITyqtP2BksPVp0mIoX1c=";
 
   # Prevent playwright from trying to download browsers in the sandbox.
   npmFlags = [ "--ignore-scripts" ];

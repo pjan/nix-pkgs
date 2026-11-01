@@ -54,13 +54,13 @@
   };
   playwright-mcp = {
     pname = "playwright-mcp";
-    version = "v0.0.83";
+    version = "v0.0.84";
     src = fetchFromGitHub {
       owner = "microsoft";
       repo = "playwright-mcp";
-      rev = "v0.0.83";
+      rev = "v0.0.84";
       fetchSubmodules = false;
-      sha256 = "sha256-Pkm4kmnWgLX7wmPjL3hM3LWfkPwIVUoW3Wp/RHjX/hA=";
+      sha256 = "sha256-ijUhAxZls2QQkwNUtO7Ip51h+/I4OBqj5V7WCm8cU84=";
     };
   };
   rea-agents = {
