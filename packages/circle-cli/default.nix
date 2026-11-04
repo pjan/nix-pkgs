@@ -19,7 +19,7 @@ pkgs.buildNpmPackage {
     sourceRoot = "package";
     postPatch = copyLockfile;
     name = "circle-cli-${sources.circle-cli.version}-npm-deps";
-    hash = "sha256-n4N1VsByjJzjRF3wRB7cFf9Bvx/S6m1UtBfzwDFnQ64=";
+    hash = "sha256-q/d5eQO5FcvkAgYMaG20NMUWhimeDmv7kiKCWbeZnGQ=";
   };
 
   sourceRoot = "package";
