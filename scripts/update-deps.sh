@@ -34,6 +34,8 @@ generate_lockfile() {
   shift 2
   echo "Regenerating $pkg lockfile..."
   unpack "$pkg"
+  # Remove any bundled shrinkwrap/node_modules so npm generates a fresh package-lock.json.
+  rm -rf "$work/package/npm-shrinkwrap.json" "$work/package/node_modules"
   jq "$filter" "$work/package/package.json" > "$work/package.json.tmp"
   mv "$work/package.json.tmp" "$work/package/package.json"
   (cd "$work/package" && npm install --package-lock-only --ignore-scripts --no-audit --no-fund "$@" >/dev/null)
