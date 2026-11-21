@@ -29,11 +29,11 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-Sq3jFnw+eBx5fWEJ7WA6DKW4yzY6KJ4uqsqpsMXSo2A=",
+            "sha256": "sha256-kVjEtKh5LLUirkb3buqpSRzgRhajrpcimhYnfgKkrqQ=",
             "type": "url",
-            "url": "https://registry.npmjs.org/chrome-devtools-mcp/-/chrome-devtools-mcp-1.12.0.tgz"
+            "url": "https://registry.npmjs.org/chrome-devtools-mcp/-/chrome-devtools-mcp-1.13.0.tgz"
         },
-        "version": "1.12.0"
+        "version": "1.13.0"
     },
     "circle-cli": {
         "cargoLock": null,
@@ -44,11 +44,11 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-6Z9/SNKiL88WHIWN8RAD6bssHyNpOYVc5O8HtfprqEY=",
+            "sha256": "sha256-kxfnGNX86YJkFMStN/dUTq6zAzo/LE2tpEckbpjuNAc=",
             "type": "url",
-            "url": "https://registry.npmjs.org/@circle-fin/cli/-/cli-1.2.2.tgz"
+            "url": "https://registry.npmjs.org/@circle-fin/cli/-/cli-1.4.0.tgz"
         },
-        "version": "1.2.2"
+        "version": "1.4.0"
     },
     "git-wt": {
         "cargoLock": null,
@@ -100,12 +100,12 @@
             "name": null,
             "owner": "microsoft",
             "repo": "playwright-mcp",
-            "rev": "v0.0.84",
-            "sha256": "sha256-ijUhAxZls2QQkwNUtO7Ip51h+/I4OBqj5V7WCm8cU84=",
+            "rev": "v0.0.86",
+            "sha256": "sha256-A5JMAsY5f9wxen1u+oVDNQL3l7M+VqSiGnxpkqaX74g=",
             "sparseCheckout": [],
             "type": "github"
         },
-        "version": "v0.0.84"
+        "version": "v0.0.86"
     },
     "rea-agents": {
         "cargoLock": null,
@@ -116,11 +116,11 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-jVQux2qcs1BYS2CmycCIcG/4EtW7WwlMIMlbbcJWmLs=",
+            "sha256": "sha256-6M8IyfqVTpmPyIaMI/qOX1GM25VTSI7CJ7MaO7aQMVA=",
             "type": "url",
-            "url": "https://registry.npmjs.org/rea-agents/-/rea-agents-6.8.0.tgz"
+            "url": "https://registry.npmjs.org/rea-agents/-/rea-agents-6.10.1.tgz"
         },
-        "version": "6.8.0"
+        "version": "6.10.1"
     },
     "salesforce-cli": {
         "cargoLock": null,
@@ -131,11 +131,11 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-FYdWTsV/Y4VMNCdlqns9mB03y34kidRkmitocXZ4P5A=",
+            "sha256": "sha256-Sd7zQGxwFZHFphWmXx+Q81eiDRCMgvN6gkgZ14OdvoM=",
             "type": "url",
-            "url": "https://registry.npmjs.org/@salesforce/cli/-/cli-2.156.8.tgz"
+            "url": "https://registry.npmjs.org/@salesforce/cli/-/cli-2.159.7.tgz"
         },
-        "version": "2.156.8"
+        "version": "2.159.7"
     },
     "tinycast": {
         "cargoLock": null,
@@ -146,10 +146,10 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-6dPaLAobs7gTzkHM5Sk0+9B8BJQWic9Ojli6MoT3lsU=",
+            "sha256": "sha256-6ZFd23uDOUKGZOIsWuHRa1BrtLr39x1JbDfbBuf0RYk=",
             "type": "url",
-            "url": "https://github.com/abue-ammar/tinycast/releases/download/v0.12.1/Tinycast-0.12.1.dmg"
+            "url": "https://github.com/abue-ammar/tinycast/releases/download/v0.12.15/Tinycast-0.12.15.dmg"
         },
-        "version": "0.12.1"
+        "version": "0.12.15"
     }
 }

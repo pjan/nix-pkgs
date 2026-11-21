@@ -19,18 +19,18 @@
   };
   chrome-devtools-mcp = {
     pname = "chrome-devtools-mcp";
-    version = "1.12.0";
+    version = "1.13.0";
     src = fetchurl {
-      url = "https://registry.npmjs.org/chrome-devtools-mcp/-/chrome-devtools-mcp-1.12.0.tgz";
-      sha256 = "sha256-Sq3jFnw+eBx5fWEJ7WA6DKW4yzY6KJ4uqsqpsMXSo2A=";
+      url = "https://registry.npmjs.org/chrome-devtools-mcp/-/chrome-devtools-mcp-1.13.0.tgz";
+      sha256 = "sha256-kVjEtKh5LLUirkb3buqpSRzgRhajrpcimhYnfgKkrqQ=";
     };
   };
   circle-cli = {
     pname = "circle-cli";
-    version = "1.2.2";
+    version = "1.4.0";
     src = fetchurl {
-      url = "https://registry.npmjs.org/@circle-fin/cli/-/cli-1.2.2.tgz";
-      sha256 = "sha256-6Z9/SNKiL88WHIWN8RAD6bssHyNpOYVc5O8HtfprqEY=";
+      url = "https://registry.npmjs.org/@circle-fin/cli/-/cli-1.4.0.tgz";
+      sha256 = "sha256-kxfnGNX86YJkFMStN/dUTq6zAzo/LE2tpEckbpjuNAc=";
     };
   };
   git-wt = {
@@ -54,37 +54,37 @@
   };
   playwright-mcp = {
     pname = "playwright-mcp";
-    version = "v0.0.84";
+    version = "v0.0.86";
     src = fetchFromGitHub {
       owner = "microsoft";
       repo = "playwright-mcp";
-      rev = "v0.0.84";
+      rev = "v0.0.86";
       fetchSubmodules = false;
-      sha256 = "sha256-ijUhAxZls2QQkwNUtO7Ip51h+/I4OBqj5V7WCm8cU84=";
+      sha256 = "sha256-A5JMAsY5f9wxen1u+oVDNQL3l7M+VqSiGnxpkqaX74g=";
     };
   };
   rea-agents = {
     pname = "rea-agents";
-    version = "6.8.0";
+    version = "6.10.1";
     src = fetchurl {
-      url = "https://registry.npmjs.org/rea-agents/-/rea-agents-6.8.0.tgz";
-      sha256 = "sha256-jVQux2qcs1BYS2CmycCIcG/4EtW7WwlMIMlbbcJWmLs=";
+      url = "https://registry.npmjs.org/rea-agents/-/rea-agents-6.10.1.tgz";
+      sha256 = "sha256-6M8IyfqVTpmPyIaMI/qOX1GM25VTSI7CJ7MaO7aQMVA=";
     };
   };
   salesforce-cli = {
     pname = "salesforce-cli";
-    version = "2.156.8";
+    version = "2.159.7";
     src = fetchurl {
-      url = "https://registry.npmjs.org/@salesforce/cli/-/cli-2.156.8.tgz";
-      sha256 = "sha256-FYdWTsV/Y4VMNCdlqns9mB03y34kidRkmitocXZ4P5A=";
+      url = "https://registry.npmjs.org/@salesforce/cli/-/cli-2.159.7.tgz";
+      sha256 = "sha256-Sd7zQGxwFZHFphWmXx+Q81eiDRCMgvN6gkgZ14OdvoM=";
     };
   };
   tinycast = {
     pname = "tinycast";
-    version = "0.12.1";
+    version = "0.12.15";
     src = fetchurl {
-      url = "https://github.com/abue-ammar/tinycast/releases/download/v0.12.1/Tinycast-0.12.1.dmg";
-      sha256 = "sha256-6dPaLAobs7gTzkHM5Sk0+9B8BJQWic9Ojli6MoT3lsU=";
+      url = "https://github.com/abue-ammar/tinycast/releases/download/v0.12.15/Tinycast-0.12.15.dmg";
+      sha256 = "sha256-6ZFd23uDOUKGZOIsWuHRa1BrtLr39x1JbDfbBuf0RYk=";
     };
   };
 }
