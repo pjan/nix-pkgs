@@ -42,7 +42,7 @@ generate_lockfile() {
   cp "$work/package/package-lock.json" "packages/$pkg/package-lock.json"
 }
 
-generate_lockfile salesforce-cli '.' --legacy-peer-deps
+generate_lockfile salesforce-cli 'del(.bundleDependencies)' --legacy-peer-deps
 generate_lockfile circle-cli 'del(.devDependencies)' --legacy-peer-deps
 generate_lockfile rea-agents 'del(.devDependencies, .optionalDependencies, .scripts)'
 
