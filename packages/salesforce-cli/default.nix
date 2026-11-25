@@ -25,7 +25,7 @@ pkgs.buildNpmPackage {
     sourceRoot = "package";
     postPatch = copyLockfile;
     name = "salesforce-cli-${sources.salesforce-cli.version}-npm-deps";
-    hash = "sha256-BT1t0+c6vXmbpyb7aBUY+A6MSIFwxtLO0Crpz3j3XY8=";
+    hash = "sha256-Ou1FLCVonevXwbYCbu/xmXCCI3CXKHnZtZ45hV+GvvE=";
   };
 
   sourceRoot = "package";
