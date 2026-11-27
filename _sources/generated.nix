@@ -81,10 +81,10 @@
   };
   tinycast = {
     pname = "tinycast";
-    version = "0.12.15";
+    version = "0.17.0";
     src = fetchurl {
-      url = "https://github.com/abue-ammar/tinycast/releases/download/v0.12.15/Tinycast-0.12.15.dmg";
-      sha256 = "sha256-6ZFd23uDOUKGZOIsWuHRa1BrtLr39x1JbDfbBuf0RYk=";
+      url = "https://github.com/abue-ammar/tinycast/releases/download/v0.17.0/Tinycast-0.17.0.dmg";
+      sha256 = "sha256-1OCyM1cGxUF6Se+P+ZOPBkYNAfDLzLIISBT2kH23TTE=";
     };
   };
 }
